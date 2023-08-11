@@ -1,44 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <header>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="./app.css">
-        <script type="text/javascript" src="./app.js"></script>
-        <script type="text/javascript" src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
-    </header>
-    <body>
-        <div id="wrapper">
-            <div id="quote-box" class="quote-box">
-                <div id="quote-text" class="quote-text">
-                    <i class="fa fa-quote-left"> </i>
-                    <span id="text">If you can dream it, you can achieve it.</span>
-                </div>
-                <div class="quote-author" style="opacity: 1;">
-                    - 
-                    <span id="author">Zig Ziglar</span>
-                </div>
-                <div class="buttons">
-                    <a class="button" id="tweet-quote" title="Tweet this quote!" target="_top" href="https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text=%22If%20you%20can%20dream%20it%2C%20you%20can%20achieve%20it.%22%20Zig%20Ziglar" style="background-color: rgb(44, 62, 80);">
-                      <i class="fa fa-twitter"></i>
-                    </a>
-                    <a class="button" id="tumblr-quote" title="Post this quote on tumblr!" target="_blank" href="https://www.tumblr.com/widgets/share/tool?posttype=quote&amp;tags=quotes,freecodecamp&amp;caption=Zig%20Ziglar&amp;content=If%20you%20can%20dream%20it%2C%20you%20can%20achieve%20it.&amp;canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&amp;shareSource=tumblr_share_button" style="background-color: rgb(44, 62, 80);">
-                      <i class="fa fa-tumblr"></i>
-                    </a>
-                    <button class="button" id="new-quote" style="background-color: rgb(44, 62, 80);" onclick="changeclick()">New quote</button>
-                </div>
-            </div>
-        </div>
-    </body>
-    <script>
-    function changeclick()
-    {
+import quotes from "./quotes.json";
+
+$(document).ready(function(){
+    changeclick();
+});
+function changeclick()
+{
     var a = Math.floor(Math.random()*(102+1))
     var author = quotes.quotes[a].author;
     var text = quotes.quotes[a].quote;
-    var idtext = document.getElementById("text");
-    idtext.innerText = text;
-    var idauthor = document.getElementById("author");
-    idauthor.innerText = author;
+    $('#text').innerText = text;
 };
 
 const quotes = {
@@ -250,6 +220,3 @@ const quotes = {
        "quote":"If you can dream it, you can achieve it.","author":"Zig Ziglar"}
 ]
 }
-
-    </script>
-</html>
